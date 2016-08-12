@@ -33,3 +33,5 @@ cave resolve -c world -x
 cave purge -x
 cave fix-linkage -x
 
+rm -f /build.sh
+
