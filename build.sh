@@ -33,5 +33,7 @@ cave resolve -c world -x
 cave purge -x
 cave fix-linkage -x
 
+rm -rf /var/cache/paludis/distfiles/*
+
 rm -f /build.sh
 
