@@ -51,5 +51,5 @@ cd /
 echo "Bootstrapped ${stage3} into /:"
 ls --color -lah
 
-# exec /bin/bash -c /build.sh
+exec /bin/bash -c /build.sh
 

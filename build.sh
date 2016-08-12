@@ -21,8 +21,6 @@ localedef -i en_US -f UTF-8 en_US.utf8
 echo LANG="en_US.UTF-8" > /etc/env.d/99locale
 
 # update
-sed -i -e 's#^SCM_REPOSITORY=.*$#SCM_REPOSITORY="https://galileo.mailstation.de/gerrit/paludis"#' \
-	/var/db/paludis/repositories/arbor/packages/sys-apps/paludis/paludis-scm.exheres-0
 chgrp paludisbuild /dev/tty
 cave sync
 cave resolve -z -1 dev-libs/libressl sys-apps/paludis -U dev-libs/openssl -D dev-libs/openssl -f -x
