@@ -8,7 +8,7 @@ COPY ./config/paludis /etc/paludis-new
 COPY bootstrap.sh build.sh /
 
 # one step, to make the layer as thin as possible
-# bootstrap.h calls build.sh
+# bootstrap.sh calls build.sh
 RUN /bootstrap.sh amd64 x86_64
 
 # update etc files... hope this doesn't screw up
