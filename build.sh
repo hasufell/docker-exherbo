@@ -6,7 +6,7 @@ source /etc/profile
 eclectic env update
 
 # set timezone
-ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 
 # set locale
 export LANG=en_US.utf8
