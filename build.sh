@@ -29,6 +29,8 @@ cave resolve -z -1 dev-libs/libressl -x
 cave resolve -z -1 net-misc/wget net-misc/curl -x
 cave fix-linkage -x -- --without sys-apps/paludis
 cave resolve -z \!sys-apps/systemd -u '*/*' -x
+cave resolve -z -1 repository/spbecker -x
+cave update-world app-editors/nano
 cave resolve -c world -x
 cave purge -x
 cave fix-linkage -x
