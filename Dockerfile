@@ -14,7 +14,3 @@ RUN /bootstrap.sh amd64 x86_64
 # update etc files... hope this doesn't screw up
 RUN eclectic config accept-all
 
-# don't allow regular sync, because we want to make sure
-# all images deriving from this one have the same state
-RUN sed -i -e 's|^sync|#sync|' /etc/paludis/repositories/*.conf
-
