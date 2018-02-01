@@ -17,7 +17,7 @@ VerifyShaOfStage3()
 suffix=$3 # e.g. -hardened
 arch=$1
 dist="http://dev.exherbo.org/stages/"
-stage3="exherbo-amd64-current.tar.xz"
+stage3="exherbo-x86_64-pc-linux-gnu-current.tar.xz"
 
 # Create working directory, keep a copy of busybox handy
 mkdir newWorldOrder; cd newWorldOrder
