@@ -23,19 +23,54 @@ echo LANG="en_US.UTF-8" > /etc/env.d/99locale
 # update
 chgrp paludisbuild /dev/tty
 cave sync
-cave resolve -z -1 dev-libs/libressl sys-apps/paludis -U dev-libs/openssl -D dev-libs/openssl -f -x
-cave resolve -z \!dev-libs/openssl -u '*/*' -x
-cave resolve -z -1 dev-libs/libressl -x
-cave resolve -z -1 net-misc/wget net-misc/curl -x
-cave fix-linkage -x -- --without sys-apps/paludis
-cave resolve -z \!sys-apps/systemd -u '*/*' -x
-cave resolve -z -1 repository/spbecker -x
+
+cave resolve --recommendations ignore --suggestions ignore \
+	-z -1 \
+	-U dev-libs/openssl -D dev-libs/openssl \
+	dev-libs/libressl sys-apps/paludis \
+	-f -x
+
+cave resolve --recommendations ignore --suggestions ignore \
+	-z \
+	-u '*/*' \
+	\!dev-libs/openssl \
+	-x
+
+cave resolve --recommendations ignore --suggestions ignore \
+	-z -1 \
+	dev-libs/libressl \
+	-x
+
+cave resolve --recommendations ignore --suggestions ignore \
+	-z -1 \
+	net-misc/wget net-misc/curl \
+	-x
+
+cave fix-linkage -x -- \
+	--without sys-apps/paludis \
+	--recommendations ignore --suggestions ignore
+
+cave resolve --recommendations ignore --suggestions ignore \
+	-z \
+	-u '*/*' \
+	\!sys-apps/systemd \
+	-x
+
+cave resolve --recommendations ignore --suggestions ignore \
+	-z -1 \
+	repository/spbecker \
+	-x
+
 cave update-world app-editors/nano
-cave resolve -c world -x
+
+cave resolve \
+	-c world --recommendations ignore --suggestions ignore \
+	-x
+
 cave purge -x
-cave fix-linkage -x
+
+cave fix-linkage -x -- \
+	--recommendations ignore --suggestions ignore
 
 rm -rf /var/cache/paludis/distfiles/*
-
-rm -f /build.sh
 
